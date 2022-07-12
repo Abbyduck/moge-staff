@@ -7,8 +7,11 @@
                 <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
+{{--                    <button type="submit" class="btn btn-default">--}}
+{{--                        <i class="fas fa-search"></i>--}}
+{{--                    </button>--}}
+                    <button :class="{ danger: isDeleting }">
+                        Submit
                     </button>
                 </div>
             </div>
@@ -24,7 +27,8 @@
 
                     <th>{!! __("zh.$field") !!}
                     @if(isset($fieldSet['sortable']))
-                        <a class="fa fa-fw fa-sort" href="{{ url()->current() }}"></a>
+
+                        @include('components.sortable_tr',['field'=>$field])
                     @endif
                     </th>
                 @endforeach
@@ -41,8 +45,8 @@
                     @else
                     <td>
                     @switch($fieldSet)
-                        @case("")
-                        <span class="badge alert-danger rounded-pill">{{$item->$field}}</span>
+                        @case("bg-label")
+                        <span class="badge rounded-pill">{{$item->$field}}</span>
                         @default
                         {{$item->$field}}
                     @endswitch

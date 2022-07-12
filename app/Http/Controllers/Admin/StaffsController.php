@@ -16,6 +16,7 @@ class StaffsController extends Controller
     public function index()
     {
         $staffs = Staffs::paginate(15);
+        $d=request('_sotr');
         return view('admin.staff.list',['data'=>$staffs,'fields'=>config('admin_tables.staff_list')]);
     }
 
