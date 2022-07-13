@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Staffs;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StaffsController extends Controller
@@ -14,8 +15,9 @@ class StaffsController extends Controller
      */
     public function index()
     {
-        $staffs = Staffs::all();
-        return view('admin.staff.list',['data'=>$staffs]);
+        $staffs = Staffs::paginate(15);
+        $d=request('_sotr');
+        return view('admin.staff.list',['data'=>$staffs,'fields'=>config('admin_tables.staff_list')]);
     }
 
     /**

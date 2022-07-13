@@ -1,0 +1,20 @@
+.bg-label-warning {
+    background-color: #fff2d6!important;
+    color: #ffab00!important;
+}
+.bg-label-primary {
+    background-color: #fff2d6!important;
+    color: #ffab00!important;
+}
+
+.bg-label-pink {
+    background-color: #fff2d6!important;
+    color: #ffab00!important;
+}
+.fa-sort-asc:before {
+    content: "\f0de";
+}
+
+.fa-sort-desc:before {
+    content: "\f0dd";
+}

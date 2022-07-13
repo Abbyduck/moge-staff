@@ -21,14 +21,13 @@ Route::prefix('admin')->get('logout', [LoginController::class,'logout'])->name('
 Route::prefix('admin')->get('login', [LoginController::class,'login'])->name('admin.login');
 Route::prefix('admin')->post('login', [LoginController::class,'authenticate'])->name('admin.login');
 
-Route::get('/admin/', function () {
-    return view('starter');
-})->name('staff.list');
 Route::prefix('admin')->middleware('auth')->group(function () {
+
+    Route::get('/', function () {
+        return redirect()->to('admin.dashboard');
+});
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
-    Route::get('/staffs', function () {
-        return view('starter');
-    })->name('staff.list');
+
     Route::get('/attendance', function () {
         return view('starter',['title'=>'attendance']);
     })->name('staff.attendance');
