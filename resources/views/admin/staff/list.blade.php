@@ -1,14 +1,15 @@
-@extends('admin.layout.app')
-@section('main-content')
-<section class="content">
-    <div class="container-fluid">
-        <!-- Main row -->
-        <div class="row">
-            <div class="col-12">
-                @include('tables.data',['data'=>$data,'fields'=>$fields])
-            </div>
-        </div>
-        <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-</section>
+@extends('admin.elements.common-list')
+@section('tools')
+        <button class="btn btn-primary">新增</button>
+        <button class="btn btn-success">导出Excel</button>
+{{--    <div class="input-group input-group-sm" style="width: 150px;">--}}
+{{--        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">--}}
+{{--        --}}
+{{--        <div class="input-group-append">--}}
+{{--            <button type="submit" class="btn btn-default">--}}
+{{--                <i class="fas fa-search"></i>--}}
+{{--            </button>--}}
+{{--            --}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endsection

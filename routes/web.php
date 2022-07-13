@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->get('logout', [LoginController::class,'logout'])->name('admin.logout');
 Route::prefix('admin')->get('login', [LoginController::class,'login'])->name('admin.login');
-Route::prefix('admin')->post('login', [LoginController::class,'authenticate'])->name('admin.login');
+Route::prefix('admin')->post('login', [LoginController::class,'authenticate']);
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/', function () {
-        return redirect()->to('admin.dashboard');
+        return redirect()->route('admin.dashboard');
 });
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
 

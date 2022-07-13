@@ -13,10 +13,11 @@ class StaffsController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
-        $staffs = Staffs::paginate(15);
-        $d=request('_sotr');
+
+        $staffs = Staffs::sortable()->paginate(15);
+
         return view('admin.staff.list',['data'=>$staffs,'fields'=>config('admin_tables.staff_list')]);
     }
 

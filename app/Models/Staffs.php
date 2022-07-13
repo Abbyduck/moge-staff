@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 /**
  * App\Models\Staffs
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $entry_date 入职时间
  * @property int|null $gender 性别
  * @property string|null $birthday 生日
+ * @method static Sortable sortable()
  * @method static \Database\Factories\StaffsFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Staffs newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Staffs newQuery()
@@ -34,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Staffs extends Model
 {
+    use Sortable;
     use HasFactory;
     public $timestamps = false;
     protected $casts = [
@@ -41,4 +44,9 @@ class Staffs extends Model
 //        'entry_date' => 'date',
     ];
 
+    public $sortable=['attendance_no','birthday'];
+
+    public function department(){
+        return $this->belongsTo('App/Models/Department');
+    }
 }
