@@ -4,16 +4,17 @@
         <thead>
         <tr>
             @foreach($fields as $field=>$fieldSet)
-                
-                
+
+
                 @if(isset($fieldSet['sortable']))
                     {{--                        <th> @sortablelink($field)</th>--}}
-                    @include('components.sortable_th',['field'=>$field])
+
+                    @include('components.sortable_th',['field'=>$fieldSet['sortable']===1?$field:$fieldSet['sortable']])
                 @else
                     <th>{!! __("zh.$field") !!}</th>
-                
+
                 @endif
-            
+
             @endforeach
         </tr>
         </thead>
@@ -21,8 +22,8 @@
         @foreach($data as $item)
             <tr>
                 @foreach($fields as $field=>$fieldSet)
-                    
-                    
+
+
                     @if($field==='action')
                         <td>a {!! __('zh.action') !!}</td>
                     @else
@@ -34,7 +35,7 @@
                                 {{$item->$field}}
                             @endswitch
                         </td>
-                    
+
                     @endif
                 @endforeach
             </tr>
@@ -42,3 +43,8 @@
         </tbody>
     </table>
 </div>
+
+<div class="card-footer">
+    {!! $data->links() !!}
+</div>
+

@@ -137,6 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <strong>Copyright &copy; 2014-2022 <a href="https://moge.tv">MOGE.tv</a>.</strong> All rights reserved.
     </footer>
 </div>
+@yield('modal')
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->

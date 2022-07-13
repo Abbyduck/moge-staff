@@ -44,9 +44,6 @@ class Staffs extends Model
 //        'entry_date' => 'date',
     ];
 
-    public $sortable=['attendance_no','birthday'];
+    public $sortable=['attendance_no','birthday','entry_date','name','department_id'];
 
-    public function department(){
-        return $this->belongsTo('App/Models/Department');
-    }
 }

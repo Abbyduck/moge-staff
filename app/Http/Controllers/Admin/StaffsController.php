@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\Staffs;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,12 @@ class StaffsController extends Controller
     public function index(Request $request)
     {
 
-        $staffs = Staffs::sortable()->paginate(15);
+        $staffs = Staffs::sortable()->paginate(15)->withQueryString();
+        $departments = Department::all()->pluck('name','id');
+        foreach ($staffs as &$staff) {
+            $staff->department = $departments[$staff->department_id] ?? '';
+            $staff->entry_years = entry_years($staff->entry_date) ;
+        }
 
         return view('admin.staff.list',['data'=>$staffs,'fields'=>config('admin_tables.staff_list')]);
     }
