@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
@@ -44,6 +45,19 @@ class Staffs extends Model
 //        'entry_date' => 'date',
     ];
 
+    protected $guarded =[];
     public $sortable=['attendance_no','birthday','entry_date','name','department_id'];
+
+    protected $appends=['entry_years'];
+
+    public function setPasswordAttribute( $value)
+    {
+        $pwd = $value ??'123456';
+        $this->attributes['password'] =  Hash::make($pwd);
+    }
+    public function getEntryYearsAttribute()
+    {
+        return entry_years($this->entry_date);
+    }
 
 }

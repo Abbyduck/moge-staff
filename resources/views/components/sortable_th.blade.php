@@ -18,8 +18,8 @@
     }
 
 @endphp
-<th>{!! __("zh.$field") !!}<a @class(["fa", "fa-fw" ,
+<a @class(["fa", "fa-fw" ,
 "fa-sort"=>$fa_sort,
 "fa-sort-desc"=>$fa_desc,
 "fa-sort-asc"=>$fa_asc
-    ]) href="{{ url()->current().$query }}"> </a></th>
+    ]) href="{{ url()->current().$query }}"> </a>

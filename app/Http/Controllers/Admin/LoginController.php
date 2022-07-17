@@ -23,7 +23,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('login');
     }
     public function authenticate(Request $request)
     {
@@ -39,7 +39,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials,$remember)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('admin.dashboard')->withSuccess('Signed in');
+            return redirect()->intended('dashboard')->withSuccess('Signed in');
         }
 
         return back()->withErrors([

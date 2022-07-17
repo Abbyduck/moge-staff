@@ -37,6 +37,9 @@ class Test extends Command
      */
     public function handle()
     {
+
+        $c = entry_years("2018-07-02");
+        dd($c);
         $route = 'staff_attendance';
         foreach(config('admin_menu') as $block=>$sub_menu){
             print_r($sub_menu);

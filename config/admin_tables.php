@@ -12,6 +12,6 @@ return
             'department' => ['type' => 'text','sortable'=>'department_id'],
             'entry_years' => ['type' => 'text','sortable'=>'entry_date'],
             'birthday' => ['type' => 'text','sortable'=>1],
-            'action' => ['edit']
+            'action' => ['edit','del']
         ],
     ];

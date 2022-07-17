@@ -8,10 +8,11 @@
 
                 @if(isset($fieldSet['sortable']))
                     {{--                        <th> @sortablelink($field)</th>--}}
-
+                    <th>{!! __("zh.$field")  !!}
                     @include('components.sortable_th',['field'=>$fieldSet['sortable']===1?$field:$fieldSet['sortable']])
+                    </th>
                 @else
-                    <th>{!! __("zh.$field") !!}</th>
+                    <th>{!! __("zh.$field")  !!}</th>
 
                 @endif
 

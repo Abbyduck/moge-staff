@@ -133,4 +133,9 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'attributes'            =>[
+        'name'=>'姓名',
+        'attendance_no'=>'考勤编号',
+        'email'=>'邮件',
+    ]
 ];
