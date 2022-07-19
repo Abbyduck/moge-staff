@@ -238,6 +238,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script>
     let currentRoute = "{{ Route::current()->uri() }}";
 
+    @if($message = session('success_message'))
+    Swal.fire(
+        'Good job!',
+        '{{ $message }}',
+        'success'
+    )
+    @endif
 </script>
 
 @stack('scripts')
