@@ -156,8 +156,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @yield('modal')
 
 <button type="button" id="show-modal" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" style="display:none;"></button>
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" style="width:1024px !important;">
+<div class="modal fade bs-example-modal-lg " tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered " style="width:1024px !important;">
         <div class="modal-content">
             <div class="modal-body p-3 p-md-5" >
                 <button type="button" class="btn-close" data-dismiss="modal"></button>
@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
 </div>
 <div class="modal fade haha" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" style="width:1024px !important;">
+    <div class="modal-dialog modal-lg  modal-dialog-centered" style="width:1024px !important;">
         <div class="modal-content">
             <div class="modal-body p-3 p-md-5" >
                 <button type="button" class="btn-close" data-dismiss="modal"></button>

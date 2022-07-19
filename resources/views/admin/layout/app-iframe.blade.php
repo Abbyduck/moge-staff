@@ -76,11 +76,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
     })
     $(window).resize(function () {
         setTimeout(() => {
-            console.log('d')
             const height = $("#frame-wrapper").height()
             window.parent.document.getElementById("inner-frame").height= height+ 50;
         }, 50)
     })
+
+    @if($message = session('success_message'))
+        Swal.fire({
+            icon:'success',
+            title: '{{ $message }}',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(() => {
+            /* Read more about isConfirmed, isDenied below */
+           console.log('close modal and refresh window')
+            window.parent.location.reload();
+
+        })
+    @endif
 </script>
 
 @stack('scripts')

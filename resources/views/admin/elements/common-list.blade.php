@@ -46,7 +46,7 @@
                                                 <div class="action d-inline-block">
                                                     @foreach($fieldSet as $action)
 
-                                                        <button class="btn btn-sm btn-icon {{$action}}"
+                                                        <button class="btn btn-lg btn-icon {{$action}}"
                                                                 data-id="{{$item->id}}">
 
                                                             @if($action=='edit')

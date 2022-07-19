@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 use Kyslik\ColumnSortable\Sortable;
 
@@ -38,7 +39,7 @@ use Kyslik\ColumnSortable\Sortable;
 class Staffs extends Model
 {
     use Sortable;
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     public $timestamps = false;
     protected $casts = [
 //        'birthday' => 'date',
@@ -49,6 +50,7 @@ class Staffs extends Model
     public $sortable=['attendance_no','birthday','entry_date','name','department_id'];
 
     protected $appends=['entry_years'];
+
 
     public function setPasswordAttribute( $value)
     {
