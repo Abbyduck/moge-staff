@@ -20,6 +20,7 @@ use Kyslik\ColumnSortable\Sortable;
  * @property string|null $entry_date 入职时间
  * @property int|null $gender 性别
  * @property string|null $birthday 生日
+ * @property string|null $email_verified_at 邮箱是否验证
  * @method static Sortable sortable()
  * @method static \Database\Factories\StaffsFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Staffs newModelQuery()
